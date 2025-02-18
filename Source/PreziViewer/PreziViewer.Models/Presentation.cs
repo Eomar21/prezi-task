@@ -1,14 +1,23 @@
-﻿namespace PreziViewer.Models
+﻿using Newtonsoft.Json;
+
+namespace PreziViewer.Models
 {
     public class Presentation
     {
-        public Guid Id { get; }
-        public string Title { get; }
-        public Uri ThumbnailUrl { get; }
-        public string Description { get; }
-        public string Privacy { get; } // TODO  - change to enum
-        public DateTime LastModified { get; }
-        public Owner Owner { get; }
+        [JsonProperty("Id")]
+        public Guid Id { get; set; }
+        [JsonProperty("Title")]
+        public string Title { get; set; }
+        [JsonProperty("ThumbnailUrl")]
+        public Uri ThumbnailUrl { get; set; }
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+        [JsonProperty("Privacy")]
+        public string Privacy { get; set; } // TODO  - change to enum
+        [JsonProperty("LastModified")]
+        public DateTime LastModified { get; set; }
+        [JsonProperty("Owner")]
+        public Owner Owner { get; set; }
 
     }
 }

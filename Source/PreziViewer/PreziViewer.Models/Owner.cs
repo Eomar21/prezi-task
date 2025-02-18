@@ -1,9 +1,16 @@
-﻿namespace PreziViewer.Models
+﻿using Newtonsoft.Json;
+
+namespace PreziViewer.Models
 {
     public class Owner
     {
-        public Guid Id { get; }
-        public string FirstName { get; }
-        public Uri LastName { get; }
+        [JsonProperty("Id")]
+        public Guid Id { get; set; }
+        [JsonProperty("FirstName")]
+
+        public string FirstName { get; set; }
+        [JsonProperty("LastName")]
+
+        public Uri LastName { get; set; }
     }
 }

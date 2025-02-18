@@ -1,6 +1,11 @@
-﻿namespace PreziViewer.Services.Interface
+﻿using PreziViewer.Models;
+
+namespace PreziViewer.Services.Interface
 {
-    internal interface IPresentationOnlineFetcher
+    public interface IPresentationOnlineFetcher
     {
+        Task<Presentations> TryGetOnlinePresentations();
+
+        Task<Presentations> TryGetOnlinePresentationsAndSave();
     }
 }
