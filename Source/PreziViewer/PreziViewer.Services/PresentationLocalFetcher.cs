@@ -16,7 +16,7 @@ namespace PreziViewer.Services
 
         public async Task<Presentations> TryGetLocalPresentations()
         {
-            var pathTofile = AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation");
+            var pathTofile = AppContext.BaseDirectory + m_ConfigurationService.GetString(ConfigurationService.LoggingLocation);
             try
             {
                 string fileContent = await File.ReadAllTextAsync(pathTofile);

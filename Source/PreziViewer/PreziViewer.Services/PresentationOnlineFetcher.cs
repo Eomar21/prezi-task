@@ -20,7 +20,7 @@ namespace PreziViewer.Services
         {
             try
             {
-                string url = m_ConfigurationService.GetString("OnlineRepo");
+                string url = m_ConfigurationService.GetString(ConfigurationService.OnlineRepo);
                 string json = await m_HttpClient.GetStringAsync(url);
                 var presentations = JsonConvert.DeserializeObject<Presentations>(json);
                 return presentations ?? Presentations.Empty;
@@ -42,7 +42,7 @@ namespace PreziViewer.Services
         public async Task<Presentations> TryGetOnlinePresentationsAndSave()
         {
             var presentations = await TryGetOnlinePresentations();
-            SavePresentations(presentations, AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation"));
+            SavePresentations(presentations, AppContext.BaseDirectory + m_ConfigurationService.GetString(ConfigurationService.LoggingLocation));
             return presentations;
         }
 

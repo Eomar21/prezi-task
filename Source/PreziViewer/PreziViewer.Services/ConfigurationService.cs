@@ -20,5 +20,8 @@ namespace PreziViewer.Services
         {
             return Configuration[key] ?? string.Empty;
         }
+
+        public static string LoggingLocation => "LoggingLocation";
+        public static string OnlineRepo => "OnlineRepo";
     }
 }
