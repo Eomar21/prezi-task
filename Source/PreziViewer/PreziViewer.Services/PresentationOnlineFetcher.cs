@@ -42,7 +42,7 @@ namespace PreziViewer.Services
         public async Task<Presentations> TryGetOnlinePresentationsAndSave()
         {
             var presentations = await TryGetOnlinePresentations();
-            SavePresentations(presentations, AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation")); // TODO : Move to configuration
+            SavePresentations(presentations, AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation"));
             return presentations;
         }
 

@@ -4,6 +4,6 @@ namespace PreziViewer.Services.Interface
 {
     public interface IPresentationFetcher
     {
-        IEnumerable<Presentation> GetPresentations();
+        Task<IEnumerable<Presentation>> GetPresentations();
     }
 }

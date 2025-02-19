@@ -9,6 +9,6 @@ namespace PreziViewer.Services.Interface
 {
     public interface IPresentationLocalFetcher
     {
-        IEnumerable<Presentation> TryGetOnlinePresentations();
+        Task<Presentations> TryGetLocalPresentations();
     }
 }
