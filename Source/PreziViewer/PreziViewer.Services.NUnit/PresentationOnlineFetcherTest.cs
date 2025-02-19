@@ -12,23 +12,28 @@ namespace PreziViewer.Services.NUnit
 
         private Mock<HttpMessageHandler> m_HttpMessageHandler;
         private Mock<HttpClient> m_HttpClient;
+        private Mock<IConfigurationService> m_ConfigurationService;
         private IPresentationOnlineFetcher m_PresentationOnlineFetcher;
         [SetUp]
         public void Setup()
         {
             m_HttpMessageHandler = new Mock<HttpMessageHandler>();
+            m_ConfigurationService = new Mock<IConfigurationService>();
+            m_ConfigurationService.Setup(x => x.GetString("LoggingLocation")).Returns("appsettings.json");
+            m_ConfigurationService.Setup(x => x.GetString("OnlineRepo")).Returns("https://s3.amazonaws.com/prezi-desktop/other/Assesment/prezilist.json");
+
         }
 
         public void UseOnlineData()
         {
             m_HttpClient = new Mock<HttpClient>();
-            m_PresentationOnlineFetcher = new PresentationOnlineFetcher(m_HttpClient.Object);
+            m_PresentationOnlineFetcher = new PresentationOnlineFetcher(m_HttpClient.Object, m_ConfigurationService.Object);
         }
 
         public void UseMessageHandlerWithFakeData()
         {
             m_HttpClient = new Mock<HttpClient>(m_HttpMessageHandler.Object);
-            m_PresentationOnlineFetcher = new PresentationOnlineFetcher(m_HttpClient.Object);
+            m_PresentationOnlineFetcher = new PresentationOnlineFetcher(m_HttpClient.Object, m_ConfigurationService.Object);
         }
 
         [Test]

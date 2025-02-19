@@ -8,16 +8,19 @@ namespace PreziViewer.Services
     internal class PresentationOnlineFetcher : IPresentationOnlineFetcher
     {
         private readonly HttpClient m_HttpClient;
+        private readonly IConfigurationService m_ConfigurationService;
 
-        public PresentationOnlineFetcher(HttpClient httpClient)
+
+        public PresentationOnlineFetcher(HttpClient httpClient, IConfigurationService configurationService)
         {
             m_HttpClient = httpClient;
+            m_ConfigurationService = configurationService;
         }
         public async Task<Presentations> TryGetOnlinePresentations()
         {
             try
             {
-                string url = "https://s3.amazonaws.com/prezi-desktop/other/Assesment/prezilist.json";
+                string url = m_ConfigurationService.GetString("OnlineRepo");
                 string json = await m_HttpClient.GetStringAsync(url);
                 var presentations = JsonConvert.DeserializeObject<Presentations>(json);
                 return presentations ?? Presentations.Empty;
@@ -39,13 +42,12 @@ namespace PreziViewer.Services
         public async Task<Presentations> TryGetOnlinePresentationsAndSave()
         {
             var presentations = await TryGetOnlinePresentations();
-            SavePresentations(presentations, AppContext.BaseDirectory + "presentations.json"); // TODO : Move to configuration
+            SavePresentations(presentations, AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation")); // TODO : Move to configuration
             return presentations;
         }
 
         private void SavePresentations(Presentations presentations, string pathToSave)
         {
-            // Save to local storage
             using (StreamWriter file = File.CreateText(pathToSave))
             {
                 JsonSerializer serializer = new JsonSerializer();
