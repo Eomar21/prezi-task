@@ -10,12 +10,12 @@ namespace PreziViewer.Services
         private readonly HttpClient m_HttpClient;
         private readonly IConfigurationService m_ConfigurationService;
 
-
         public PresentationOnlineFetcher(HttpClient httpClient, IConfigurationService configurationService)
         {
             m_HttpClient = httpClient;
             m_ConfigurationService = configurationService;
         }
+
         public async Task<Presentations> TryGetOnlinePresentations()
         {
             try

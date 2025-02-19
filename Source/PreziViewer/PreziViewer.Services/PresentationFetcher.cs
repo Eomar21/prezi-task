@@ -13,6 +13,7 @@ namespace PreziViewer.Services
             m_PresentationLocalFetcher = presentationLocalFetcher;
             m_PresentationOnlineFetcher = presentationOnlineFetcher;
         }
+
         public async Task<IEnumerable<Presentation>> GetPresentations()
         {
             var onlinePresentations = await m_PresentationOnlineFetcher.TryGetOnlinePresentationsAndSave();

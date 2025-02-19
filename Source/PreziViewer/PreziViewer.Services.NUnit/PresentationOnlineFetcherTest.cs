@@ -9,11 +9,11 @@ namespace PreziViewer.Services.NUnit
 {
     public class PresentationOnlineFetcherTest
     {
-
         private Mock<HttpMessageHandler> m_HttpMessageHandler;
         private Mock<HttpClient> m_HttpClient;
         private Mock<IConfigurationService> m_ConfigurationService;
         private IPresentationOnlineFetcher m_PresentationOnlineFetcher;
+
         [SetUp]
         public void Setup()
         {
@@ -21,7 +21,6 @@ namespace PreziViewer.Services.NUnit
             m_ConfigurationService = new Mock<IConfigurationService>();
             m_ConfigurationService.Setup(x => x.GetString("LoggingLocation")).Returns("appsettings.json");
             m_ConfigurationService.Setup(x => x.GetString("OnlineRepo")).Returns("https://s3.amazonaws.com/prezi-desktop/other/Assesment/prezilist.json");
-
         }
 
         public void UseOnlineData()
@@ -42,7 +41,6 @@ namespace PreziViewer.Services.NUnit
             // Arrange
             UseOnlineData();
 
-
             // Act
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
 
@@ -61,7 +59,6 @@ namespace PreziViewer.Services.NUnit
             // Arrange
             UseOnlineData();
 
-
             // Act
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentationsAndSave();
 
@@ -73,7 +70,6 @@ namespace PreziViewer.Services.NUnit
 
             // TODO : Add more assertions on all values
         }
-
 
         [Test]
         public async Task TryGetOnlinePresentations_ShouldReturnDeserializedPresentations_WhenApiReturnsValidJson()
@@ -87,7 +83,6 @@ namespace PreziViewer.Services.NUnit
             };
 
             var expectedPresentations = new Presentations(expectedPresentationsList);
-
 
             string jsonResponse = JsonConvert.SerializeObject(expectedPresentations);
 
@@ -113,7 +108,6 @@ namespace PreziViewer.Services.NUnit
             Assert.That(result.List.First().Title, Is.EqualTo(expectedPresentations.List.First().Title));
 
             // TODO : Add more assertions on all values
-
         }
 
         [Test]

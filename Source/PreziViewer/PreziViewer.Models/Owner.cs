@@ -6,11 +6,11 @@ namespace PreziViewer.Models
     {
         [JsonProperty("Id")]
         public Guid Id { get; set; }
+
         [JsonProperty("FirstName")]
-
         public string FirstName { get; set; }
-        [JsonProperty("LastName")]
 
+        [JsonProperty("LastName")]
         public Uri LastName { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace PreziViewer.Services
         {
             m_ConfigurationService = configurationService;
         }
+
         public async Task<Presentations> TryGetLocalPresentations()
         {
             var pathTofile = AppContext.BaseDirectory + m_ConfigurationService.GetString("LoggingLocation");
@@ -34,8 +35,6 @@ namespace PreziViewer.Services
                 }
                 return Presentations.Empty;
             }
-
-
         }
     }
 }

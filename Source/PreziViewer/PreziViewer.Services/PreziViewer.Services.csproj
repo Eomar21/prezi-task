@@ -16,8 +16,4 @@
 		<ProjectReference Include="..\PreziViewer.Models\PreziViewer.Models.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Data\" />
-	</ItemGroup>
-
 </Project>
