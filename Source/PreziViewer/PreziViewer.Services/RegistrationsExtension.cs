@@ -7,7 +7,7 @@ namespace PreziViewer.Services
     {
         public static void WithPresentationCoreServices(this IServiceCollection services)
         {
-            services.AddTransient<IPresentationFetcher, PresentationFetcher>();
+            services.AddSingleton<IPresentationFetcher, PresentationFetcher>();
             services.AddTransient<IPresentationOnlineFetcher, PresentationOnlineFetcher>();
             services.AddTransient<IPresentationLocalFetcher, PresentationLocalFetcher>();
             services.AddTransient<IConfigurationService, ConfigurationService>();

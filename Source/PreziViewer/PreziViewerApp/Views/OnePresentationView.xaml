@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:PreziViewer.App.Views"
+             xmlns:local="clr-namespace:PreziViewer.App.Views" xmlns:viewmodels="clr-namespace:PreziViewer.App.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:OnePresentationViewModel}"
              mc:Ignorable="d"
              Width="350"
              Height="250"
@@ -20,9 +21,9 @@
         <Border.Background>
             <ImageBrush ImageSource="{Binding ThumbnailUrl}"></ImageBrush>
         </Border.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" />
-            <TextBlock Text="{Binding Description}" FontSize="14" />
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Background="LightBlue" Text="{Binding Title}" FontSize="20" FontWeight="Bold" />
+            <Button Command="{Binding GoToDetailedViewCommand}">Go TO Details</Button>
         </StackPanel>
     </Border>
 

@@ -3,6 +3,8 @@ using Microsoft.Extensions.Hosting;
 using PreziViewer.App.ViewModels;
 using PreziViewer.App.Views;
 using PreziViewer.Services;
+using ReactiveUI;
+using Splat;
 using System.Windows;
 
 namespace PreziViewerApp
@@ -26,12 +28,17 @@ namespace PreziViewerApp
                 services.AddTransient<MainWindow>();
                 services.AddTransient<PresentationsView>();
                 services.AddTransient<OnePresentationView>();
+                services.AddTransient<DetailedPresentationView>();
 
                 // ViewModels
-                services.AddTransient<MainWindowViewModel>();
+                services.AddSingleton<MainWindowViewModel>();
                 services.AddTransient<PresentationsViewModel>();
                 services.AddTransient<OnePresentationViewModel>();
+                services.AddTransient<DetailedPresentationViewModel>();
             }).Build();
+            Locator.CurrentMutable.Register(() => new PresentationsView(), typeof(IViewFor<PresentationsViewModel>));
+            Locator.CurrentMutable.Register(() => new OnePresentationView(), typeof(IViewFor<OnePresentationViewModel>));
+            Locator.CurrentMutable.Register(() => new DetailedPresentationView(), typeof(IViewFor<DetailedPresentationViewModel>));
         }
 
         protected override async void OnStartup(StartupEventArgs e)
@@ -39,6 +46,9 @@ namespace PreziViewerApp
             base.OnStartup(e);
             await m_Host.StartAsync();
             var mainWindow = m_ServiceProvider.GetRequiredService<MainWindow>();
+            var mainViewModel = m_ServiceProvider.GetRequiredService<MainWindowViewModel>();
+
+            mainWindow.DataContext = mainViewModel;
             mainWindow.Show();
         }
 

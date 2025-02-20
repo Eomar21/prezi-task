@@ -4,24 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PreziViewer.App.Views"
-             xmlns:viewmodels="clr-namespace:PreziViewer.App.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PresentationsViewModel}"
+             xmlns:viewmodels="clr-namespace:PreziViewer.App.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:PresentationsViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
         <TextBlock Width="300">Presentations View Hola</TextBlock>
         <ScrollViewer>
-            <ListBox ItemsSource="{Binding Presentations}"
-                     HorizontalContentAlignment="Center"
-                     VerticalAlignment="Top"
-                     SelectionMode="Single"
-                     Width="400">
-                <ListBox.ItemTemplate>
+            <ItemsControl ItemsSource="{Binding Presentations}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:OnePresentationView></local:OnePresentationView>
+                        <Border BorderThickness="1" BorderBrush="Gray" Padding="10" Margin="5">
+                            <local:OnePresentationView Width="300" Height="200"/>
+                        </Border>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
         </ScrollViewer>
 
     </Grid>

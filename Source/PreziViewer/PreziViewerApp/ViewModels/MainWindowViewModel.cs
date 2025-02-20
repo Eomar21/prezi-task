@@ -1,14 +1,26 @@
-﻿using PreziViewer.App.Views;
+﻿using PreziViewer.Services.Interface;
+using ReactiveUI;
+using System.Diagnostics.Metrics;
 
 namespace PreziViewer.App.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase, IScreen
     {
-        public PresentationsView PresentationsView { get; }
+        public RoutingState Router { get; }
+        public readonly IPresentationFetcher m_PresentationFetcher;
 
-        public MainWindowViewModel(PresentationsView positionView)
+        public MainWindowViewModel(IPresentationFetcher presentationFetcher)
         {
-            PresentationsView = positionView;
+            Router = new RoutingState();
+            m_PresentationFetcher = presentationFetcher;
+            NavigateToPresentations();
+
+        }
+
+        public void NavigateToPresentations()
+        {
+            Router.Navigate.Execute(new PresentationsViewModel(m_PresentationFetcher, this));
+
         }
     }
 }

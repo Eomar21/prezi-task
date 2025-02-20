@@ -1,33 +1,34 @@
-﻿using PreziViewer.Models;
-using PreziViewer.Services.Interface;
+﻿using PreziViewer.Services.Interface;
 using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Disposables;
-using System.Reactive.Threading.Tasks;
 
 namespace PreziViewer.App.ViewModels
 {
-    public class PresentationsViewModel : ViewModelBase, IDisposable
+    public class PresentationsViewModel : ViewModelBase, IRoutableViewModel, IDisposable
     {
         private readonly CompositeDisposable m_Disposable = new();
         private readonly IPresentationFetcher m_PresentationFetcher;
-        public ObservableCollection<Presentation> Presentations { get; } = new();
+        public ObservableCollection<OnePresentationViewModel> Presentations { get; } = new();
 
+        public string? UrlPathSegment => "presentations";
+        public IScreen HostScreen { get; }
 
-
-        public PresentationsViewModel(IPresentationFetcher presentationFetcher)
+        public PresentationsViewModel(IPresentationFetcher presentationFetcher, IScreen screen)
         {
             m_PresentationFetcher = presentationFetcher;
-            LoadPresentations();
+            HostScreen = screen;
+            LoadPresentations().ConfigureAwait(false);
+
         }
 
-        private async void LoadPresentations()
+        private async Task LoadPresentations()
         {
             var presentations = await m_PresentationFetcher.GetPresentations();
             foreach (var item in presentations)
             {
-                Presentations.Add(item);
+                Presentations.Add(new OnePresentationViewModel(item, HostScreen));
             }
         }
 
