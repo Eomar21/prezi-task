@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using PreziViewer.App.ViewModels;
+using System.Windows.Controls;
 
 namespace PreziViewer.App.Views
 {
@@ -7,9 +8,10 @@ namespace PreziViewer.App.Views
     /// </summary>
     public partial class PresentationsView : UserControl
     {
-        public PresentationsView()
+        public PresentationsView(PresentationsViewModel presentationsViewModel)
         {
             InitializeComponent();
+            DataContext = presentationsViewModel;
         }
     }
 }

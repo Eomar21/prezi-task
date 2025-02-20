@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using PreziViewer.App.ViewModels;
 using PreziViewer.App.Views;
+using PreziViewer.Services;
 using System.Windows;
 
 namespace PreziViewerApp
@@ -19,13 +20,17 @@ namespace PreziViewerApp
             m_Host = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
             {
                 // Services
+                services.WithPresentationCoreServices();
 
                 // Views
                 services.AddTransient<MainWindow>();
                 services.AddTransient<PresentationsView>();
+                services.AddTransient<OnePresentationView>();
 
                 // ViewModels
                 services.AddTransient<MainWindowViewModel>();
+                services.AddTransient<PresentationsViewModel>();
+                services.AddTransient<OnePresentationViewModel>();
             }).Build();
         }
 
