@@ -2,7 +2,7 @@
 
 namespace PreziViewer.Services.Interface
 {
-    public interface IPresentationOnlineFetcher
+    internal interface IPresentationOnlineFetcher
     {
         Task<Presentations> TryGetOnlinePresentations();
 

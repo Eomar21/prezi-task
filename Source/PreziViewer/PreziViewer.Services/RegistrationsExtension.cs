@@ -10,6 +10,8 @@ namespace PreziViewer.Services
             services.AddTransient<IPresentationFetcher, PresentationFetcher>();
             services.AddTransient<IPresentationOnlineFetcher, PresentationOnlineFetcher>();
             services.AddTransient<IPresentationLocalFetcher, PresentationLocalFetcher>();
+            services.AddTransient<IConfigurationService, ConfigurationService>();
+            services.AddTransient<HttpClient>();
         }
     }
 }

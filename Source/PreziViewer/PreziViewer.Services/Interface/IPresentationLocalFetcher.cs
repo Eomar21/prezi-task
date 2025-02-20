@@ -2,7 +2,7 @@
 
 namespace PreziViewer.Services.Interface
 {
-    public interface IPresentationLocalFetcher
+    internal interface IPresentationLocalFetcher
     {
         Task<Presentations> TryGetLocalPresentations();
     }
