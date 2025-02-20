@@ -1,6 +1,4 @@
-﻿using PreziViewer.App.ViewModels;
-using ReactiveUI;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace PreziViewer.App.Views
 {

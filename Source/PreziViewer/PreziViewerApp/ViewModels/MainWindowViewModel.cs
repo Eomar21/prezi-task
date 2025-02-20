@@ -1,6 +1,5 @@
 ﻿using PreziViewer.Services.Interface;
 using ReactiveUI;
-using System.Diagnostics.Metrics;
 
 namespace PreziViewer.App.ViewModels
 {
@@ -14,13 +13,11 @@ namespace PreziViewer.App.ViewModels
             Router = new RoutingState();
             m_PresentationFetcher = presentationFetcher;
             NavigateToPresentations();
-
         }
 
         public void NavigateToPresentations()
         {
             Router.Navigate.Execute(new PresentationsViewModel(m_PresentationFetcher, this));
-
         }
     }
 }

@@ -19,6 +19,7 @@ namespace PreziViewer.App.Views
             get => (PresentationsViewModel)DataContext;
             set => DataContext = value;
         }
+
         object? IViewFor.ViewModel
         {
             get => ViewModel;

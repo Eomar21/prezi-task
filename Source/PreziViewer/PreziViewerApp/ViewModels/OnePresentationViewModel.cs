@@ -25,7 +25,5 @@ namespace PreziViewer.App.ViewModels
         public string Title => m_Presntation.Title;
         public string Description => m_Presntation.Description;
         public string ThumbnailUrl => m_Presntation.ThumbnailUrl.ToString();
-
-
     }
 }

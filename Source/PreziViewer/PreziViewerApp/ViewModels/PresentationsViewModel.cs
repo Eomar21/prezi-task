@@ -1,7 +1,6 @@
 ﻿using PreziViewer.Services.Interface;
 using ReactiveUI;
 using System.Collections.ObjectModel;
-using System.Reactive;
 using System.Reactive.Disposables;
 
 namespace PreziViewer.App.ViewModels
@@ -20,7 +19,6 @@ namespace PreziViewer.App.ViewModels
             m_PresentationFetcher = presentationFetcher;
             HostScreen = screen;
             LoadPresentations().ConfigureAwait(false);
-
         }
 
         private async Task LoadPresentations()

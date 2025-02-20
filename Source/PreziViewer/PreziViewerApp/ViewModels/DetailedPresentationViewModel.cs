@@ -29,6 +29,5 @@ namespace PreziViewer.App.ViewModels
         public string LastModifiedTime => m_Presentation.LastModified.ToLongTimeString();
         public string Owner => string.Concat(m_Presentation.Owner.FirstName, " ", m_Presentation.Owner.LastName);
         public string? UrlPathSegment => m_Presentation.Id.ToString();
-
     }
 }
