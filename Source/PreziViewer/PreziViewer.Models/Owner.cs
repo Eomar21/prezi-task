@@ -11,6 +11,6 @@ namespace PreziViewer.Models
         public string FirstName { get; set; }
 
         [JsonProperty("LastName")]
-        public Uri LastName { get; set; }
+        public string LastName { get; set; }
     }
 }
