@@ -26,7 +26,8 @@ namespace PreziViewer.App.ViewModels
         private async Task LoadPresentations()
         {
             var presentations = await m_PresentationFetcher.GetPresentations();
-            foreach (var item in presentations)
+            var orderedPresentations = presentations.OrderByDescending(x => x.LastModified);
+            foreach (var item in orderedPresentations)
             {
                 Presentations.Add(new OnePresentationViewModel(item, HostScreen));
             }
