@@ -5,5 +5,9 @@ namespace PreziViewer.Services.Interface
     public interface IPresentationFetcher
     {
         Task<IEnumerable<Presentation>> GetPresentations();
+
+        event EventHandler<bool>? IsSourceOnline;
     }
+
+
 }

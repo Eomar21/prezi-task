@@ -14,14 +14,18 @@ namespace PreziViewer.Services
             m_PresentationOnlineFetcher = presentationOnlineFetcher;
         }
 
+        public event EventHandler<bool>? IsSourceOnline;
+
         public async Task<IEnumerable<Presentation>> GetPresentations()
         {
             var onlinePresentations = await m_PresentationOnlineFetcher.TryGetOnlinePresentationsAndSave();
             if (!onlinePresentations.List.Any())
             {
                 var localPresentations = await m_PresentationLocalFetcher.TryGetLocalPresentations();
+                IsSourceOnline?.Invoke(this, false);
                 return localPresentations.List;
             }
+            IsSourceOnline?.Invoke(this, true);
             return onlinePresentations.List;
         }
     }

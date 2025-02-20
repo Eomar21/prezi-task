@@ -1,4 +1,5 @@
 ﻿using PreziViewer.Services.Interface;
+using PreziViewerApp;
 using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Reactive.Disposables;
