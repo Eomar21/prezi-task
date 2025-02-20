@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -16,3 +17,5 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("048fe2ae-2cd8-464d-9b27-7e89b8f54716")]
 [assembly: InternalsVisibleTo("PreziViewer.Services.NUnit")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+
