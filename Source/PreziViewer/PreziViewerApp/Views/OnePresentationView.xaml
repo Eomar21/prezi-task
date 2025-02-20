@@ -9,22 +9,19 @@
              Width="350"
              Height="250"
              d:DesignHeight="450"
-             d:DesignWidth="800"
-             >
+             d:DesignWidth="800">
 
-    <Border 
+    <Border
             CornerRadius="20"
             BorderThickness="1"
-            BorderBrush="Gray"
+            BorderBrush="LightBlue"
             Padding="10"
             Margin="5">
         <Border.Background>
             <ImageBrush ImageSource="{Binding ThumbnailUrl}"></ImageBrush>
         </Border.Background>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBlock Background="LightBlue" Text="{Binding Title}" FontSize="20" FontWeight="Bold" />
-            <Button Command="{Binding GoToDetailedViewCommand}">Go TO Details</Button>
-        </StackPanel>
+        <Border.InputBindings>
+            <MouseBinding MouseAction="LeftClick" Command="{Binding GoToDetailedViewCommand}"></MouseBinding>
+        </Border.InputBindings>
     </Border>
-
 </UserControl>

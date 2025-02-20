@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:reactiveUi="http://reactiveui.net"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Prezi Viewer"
+        Height="450"
+        Width="800"
+        MinWidth="450"
+        MinHeight="500"
+        >
     <Grid>
         <reactiveUi:RoutedViewHost Router="{Binding Router}" />
         <StatusBar VerticalAlignment="Bottom">
