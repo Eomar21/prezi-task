@@ -5,17 +5,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Prezi Viewer"
         Height="450"
         Width="800"
         MinWidth="450"
-        MinHeight="500">
-    <Grid>
-        <reactiveUi:RoutedViewHost Router="{Binding Router}" />
-        <StatusBar VerticalAlignment="Bottom">
-            <StatusBarItem>
-                <TextBlock Text="{Binding StatusText}"></TextBlock>
-            </StatusBarItem>
-        </StatusBar>
-    </Grid>
+        MinHeight="500"
+        WindowStyle="SingleBorderWindow"
+        AllowsTransparency="False"
+        Background="Transparent">
+    <Border Background="#195938" CornerRadius="20">
+        <Grid>
+            <Grid.InputBindings>
+                <MouseBinding Gesture="LeftClick"
+            Command="{Binding DragWindowCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+            </Grid.InputBindings>
+            <reactiveUi:RoutedViewHost Router="{Binding Router}" >
+            </reactiveUi:RoutedViewHost>
+            <StatusBar VerticalAlignment="Bottom" Background="#272539">
+                <StatusBarItem>
+                    <TextBlock Foreground="White" Text="{Binding StatusText}"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Border>
+
 </Window>

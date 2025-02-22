@@ -1,7 +1,10 @@
 ﻿using PreziViewer.Services.Interface;
 using ReactiveUI;
+using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Reflection.Metadata;
+using System.Windows;
 
 namespace PreziViewer.App.ViewModels
 {
@@ -11,6 +14,7 @@ namespace PreziViewer.App.ViewModels
         public readonly IPresentationFetcher m_PresentationFetcher;
         private string m_StatusText = "Offline";
         private CompositeDisposable m_Disposable = new();
+        public ReactiveCommand<Window, Unit> DragWindowCommand { get; }
 
         public string StatusText
         {
@@ -30,6 +34,16 @@ namespace PreziViewer.App.ViewModels
             {
                 StatusText = x ? "Online" : "Offline";
             }).DisposeWith(m_Disposable);
+
+            DragWindowCommand = ReactiveCommand.Create<Window>(DragWindow);
+        }
+
+        private void DragWindow(object parameter)
+        {
+            if (parameter is Window window)
+            {
+                window.DragMove();
+            }
         }
 
         public void NavigateToPresentations()

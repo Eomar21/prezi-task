@@ -9,8 +9,8 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border Background="AliceBlue" CornerRadius="20">
-        <ScrollViewer>
+    <Border  CornerRadius="20">
+        <ScrollViewer Foreground="Snow" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" >
             <ItemsControl ItemsSource="{Binding Presentations}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

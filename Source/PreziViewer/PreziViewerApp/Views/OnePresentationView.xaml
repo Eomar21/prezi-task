@@ -13,8 +13,8 @@
 
     <Border
             CornerRadius="20"
-            BorderThickness="1"
-            BorderBrush="LightBlue"
+            BorderThickness="3"
+            BorderBrush="Black"
             Padding="10"
             Margin="5">
         <Border.Background>
