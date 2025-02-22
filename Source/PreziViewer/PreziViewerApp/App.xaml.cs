@@ -29,6 +29,7 @@ namespace PreziViewerApp
                 services.AddTransient<PresentationsView>();
                 services.AddTransient<OnePresentationView>();
                 services.AddTransient<DetailedPresentationView>();
+                services.AddTransient<CustomeToolbarView>();
 
                 // ViewModels
                 services.AddSingleton<MainWindowViewModel>();

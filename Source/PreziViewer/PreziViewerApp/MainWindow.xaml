@@ -4,29 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PreziViewer.App.Views"
         mc:Ignorable="d"
         Height="450"
         Width="800"
         MinWidth="450"
         MinHeight="500"
-        WindowStyle="SingleBorderWindow"
-        AllowsTransparency="False"
-        Background="Transparent">
-    <Border Background="#195938" CornerRadius="20">
-        <Grid>
-            <Grid.InputBindings>
-                <MouseBinding Gesture="LeftClick"
-            Command="{Binding DragWindowCommand}"
-            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
-            </Grid.InputBindings>
-            <reactiveUi:RoutedViewHost Router="{Binding Router}" >
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="CanResize">
+    <Border Background="#154c79" CornerRadius="20" BorderThickness="2" BorderBrush="Transparent">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="0.98*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <local:CustomeToolbarView Grid.Row="0" />
+            <reactiveUi:RoutedViewHost Router="{Binding Router}" Grid.Row="1" >
             </reactiveUi:RoutedViewHost>
-            <StatusBar VerticalAlignment="Bottom" Background="#272539">
+            <StatusBar VerticalAlignment="Bottom" Background="RoyalBlue" Grid.Row="2" >
                 <StatusBarItem>
                     <TextBlock Foreground="White" Text="{Binding StatusText}"></TextBlock>
                 </StatusBarItem>
             </StatusBar>
         </Grid>
     </Border>
-
 </Window>

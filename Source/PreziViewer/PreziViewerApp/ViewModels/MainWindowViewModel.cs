@@ -3,8 +3,8 @@ using ReactiveUI;
 using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Reflection.Metadata;
 using System.Windows;
+using Windows.UI.Core;
 
 namespace PreziViewer.App.ViewModels
 {
@@ -14,7 +14,10 @@ namespace PreziViewer.App.ViewModels
         public readonly IPresentationFetcher m_PresentationFetcher;
         private string m_StatusText = "Offline";
         private CompositeDisposable m_Disposable = new();
+        public ReactiveCommand<Unit, Unit> CloseWindowCommand { get; }
+        public ReactiveCommand<Unit, Unit> MinimizeWindowCommand { get; }
         public ReactiveCommand<Window, Unit> DragWindowCommand { get; }
+
 
         public string StatusText
         {
@@ -24,6 +27,7 @@ namespace PreziViewer.App.ViewModels
 
         public MainWindowViewModel(IPresentationFetcher presentationFetcher)
         {
+
             Router = new RoutingState();
             m_PresentationFetcher = presentationFetcher;
             NavigateToPresentations();
@@ -34,8 +38,10 @@ namespace PreziViewer.App.ViewModels
             {
                 StatusText = x ? "Online" : "Offline";
             }).DisposeWith(m_Disposable);
+            CloseWindowCommand = ReactiveCommand.Create(CloseWindow).DisposeWith(m_Disposable);
+            MinimizeWindowCommand = ReactiveCommand.Create(MinimizeWindow).DisposeWith(m_Disposable);
+            DragWindowCommand = ReactiveCommand.Create<Window>(DragWindow).DisposeWith(m_Disposable);
 
-            DragWindowCommand = ReactiveCommand.Create<Window>(DragWindow);
         }
 
         private void DragWindow(object parameter)
@@ -44,6 +50,17 @@ namespace PreziViewer.App.ViewModels
             {
                 window.DragMove();
             }
+        }
+
+        private void MinimizeWindow()
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+
+        }
+
+        private void CloseWindow()
+        {
+            Application.Current.Shutdown();
         }
 
         public void NavigateToPresentations()
