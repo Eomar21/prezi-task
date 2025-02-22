@@ -66,8 +66,6 @@ namespace PreziViewer.Tests
             Assert.That(presentation.Owner.FirstName, Is.EqualTo("Rezso"));
             Assert.That(presentation.Owner.LastName, Is.EqualTo("Villany"));
             Assert.That(presentation.Owner.Id, Is.EqualTo(Guid.Parse("3c9f159d-a4f7-4313-8318-23f39c2a79d3")));
-
-
         }
     }
 }

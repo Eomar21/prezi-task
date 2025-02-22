@@ -4,7 +4,6 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows;
-using Windows.UI.Core;
 
 namespace PreziViewer.App.ViewModels
 {
@@ -18,7 +17,6 @@ namespace PreziViewer.App.ViewModels
         public ReactiveCommand<Unit, Unit> MinimizeWindowCommand { get; }
         public ReactiveCommand<Window, Unit> DragWindowCommand { get; }
 
-
         public string StatusText
         {
             get => m_StatusText;
@@ -27,7 +25,6 @@ namespace PreziViewer.App.ViewModels
 
         public MainWindowViewModel(IPresentationFetcher presentationFetcher)
         {
-
             Router = new RoutingState();
             m_PresentationFetcher = presentationFetcher;
             NavigateToPresentations();
@@ -41,7 +38,6 @@ namespace PreziViewer.App.ViewModels
             CloseWindowCommand = ReactiveCommand.Create(CloseWindow).DisposeWith(m_Disposable);
             MinimizeWindowCommand = ReactiveCommand.Create(MinimizeWindow).DisposeWith(m_Disposable);
             DragWindowCommand = ReactiveCommand.Create<Window>(DragWindow).DisposeWith(m_Disposable);
-
         }
 
         private void DragWindow(object parameter)
@@ -55,7 +51,6 @@ namespace PreziViewer.App.ViewModels
         private void MinimizeWindow()
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
-
         }
 
         private void CloseWindow()

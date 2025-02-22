@@ -27,7 +27,6 @@ namespace PreziViewer.Tests
                 new Presentation { Title = "Presentation 2" }
             };
 
-
             // Act
             var presentations = new Presentations(presentationList);
 
@@ -36,7 +35,6 @@ namespace PreziViewer.Tests
             Assert.That(presentations.List.Count(), Is.EqualTo(2));
             CollectionAssert.AreEqual(presentationList, presentations.List.ToList());
         }
-
 
         [Test]
         public void JsonSerialization_ShouldUseCorrectPropertyName()

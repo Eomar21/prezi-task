@@ -15,16 +15,16 @@
         Background="Transparent"
         ResizeMode="CanResize">
     <Border Background="#154c79" CornerRadius="20" BorderThickness="2" BorderBrush="Transparent">
-        <Grid >
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition Height="0.98*"></RowDefinition>
                 <RowDefinition Height="0.1*"></RowDefinition>
             </Grid.RowDefinitions>
             <local:CustomeToolbarView Grid.Row="0" />
-            <reactiveUi:RoutedViewHost Router="{Binding Router}" Grid.Row="1" >
+            <reactiveUi:RoutedViewHost Router="{Binding Router}" Grid.Row="1">
             </reactiveUi:RoutedViewHost>
-            <StatusBar VerticalAlignment="Bottom" Background="RoyalBlue" Grid.Row="2" >
+            <StatusBar VerticalAlignment="Bottom" Background="RoyalBlue" Grid.Row="2">
                 <StatusBarItem>
                     <TextBlock Foreground="White" Text="{Binding StatusText}"></TextBlock>
                 </StatusBarItem>

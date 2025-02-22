@@ -10,7 +10,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Border  CornerRadius="20">
-        <ScrollViewer Foreground="Snow" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" >
+        <ScrollViewer Foreground="Snow" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
             <ItemsControl ItemsSource="{Binding Presentations}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

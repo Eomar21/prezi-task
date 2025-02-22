@@ -8,6 +8,4 @@ namespace PreziViewer.Services.Interface
 
         event EventHandler<bool>? IsSourceOnline;
     }
-
-
 }
