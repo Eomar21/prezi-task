@@ -25,7 +25,7 @@ namespace PreziViewer.Services
             }
             catch (Exception e)
             {
-                if (e.InnerException is FileNotFoundException)
+                if (e is FileNotFoundException)
                 {
                     Debug.WriteLine($"Failed to fetch local presentations due to file not found: {e.Message}");
                 }

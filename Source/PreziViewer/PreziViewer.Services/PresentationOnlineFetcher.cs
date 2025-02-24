@@ -27,7 +27,7 @@ namespace PreziViewer.Services
             }
             catch (Exception e)
             {
-                if (e.InnerException is HttpRequestException)
+                if (e is HttpRequestException)
                 {
                     Debug.WriteLine("Failed to fetch online presentations due to network error - Probably we are offline");
                 }

@@ -8,9 +8,9 @@ namespace PreziViewer.Services
         public static void WithPresentationCoreServices(this IServiceCollection services)
         {
             services.AddSingleton<IPresentationFetcher, PresentationFetcher>();
-            services.AddTransient<IPresentationOnlineFetcher, PresentationOnlineFetcher>();
-            services.AddTransient<IPresentationLocalFetcher, PresentationLocalFetcher>();
-            services.AddTransient<IConfigurationService, ConfigurationService>();
+            services.AddSingleton<IPresentationOnlineFetcher, PresentationOnlineFetcher>();
+            services.AddSingleton<IPresentationLocalFetcher, PresentationLocalFetcher>();
+            services.AddSingleton<IConfigurationService, ConfigurationService>();
             services.AddTransient<HttpClient>();
         }
     }
