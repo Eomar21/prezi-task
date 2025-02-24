@@ -11,7 +11,7 @@ PreziViewer lets you load and view presentations. It fetches data from local and
 
 ## Getting Started
 - Build The solution PreziViewer.
-- open the PreziViewer.App as it is the starting point.
+- Open the PreziViewer.App as it is the starting point.
 - Run the PreziViewer.App.
 
 ## Configuration:
