@@ -12,6 +12,17 @@
         <Setter Property="Foreground" Value="#444"></Setter>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="TextBlockStatus">
+        <Style.Triggers>
+            <Trigger Property="Text" Value="Online">
+                <Setter Property="Foreground" Value="LightGreen"></Setter>
+            </Trigger>
+            <Trigger Property="Text" Value="Offline">
+                <Setter Property="Foreground" Value="IndianRed"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="Border" x:Key="FloatingBorder">
         <Setter Property="BorderThickness" Value="3" />
         <Style.Triggers>

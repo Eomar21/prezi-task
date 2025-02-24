@@ -15,17 +15,21 @@
         </Grid.InputBindings>
         <Border Background="#252930" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1">
             <DockPanel>
+                <Image Source="/Resources/presentation.png" Width="25" Margin="10,0,0,0"></Image>
                 <TextBlock Text="Prezie Viewer"
-                       Foreground="White"
+                       Foreground="#7c9eb7"
                        FontSize="16"
                        VerticalAlignment="Center"
                        FontFamily="/Fonts/#Poppins"
                        FontWeight="DemiBold"
-                       Margin="10,0,0,0" />
+                       Margin="5,2,0,2" />
 
                 <StackPanel DockPanel.Dock="Right" VerticalAlignment="Stretch" HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Width="40" Command="{Binding MinimizeWindowCommand}" Background="Transparent" BorderThickness="0">
                         <Image Source="/Resources/minus.png" Width="20" />
+                    </Button>
+                    <Button Width="40" Command="{Binding MaximizeWindowCommand}" Background="Transparent" BorderThickness="0">
+                        <Image Source="/Resources/maximize.png" Width="20" />
                     </Button>
                     <Button Width="40" Command="{Binding CloseWindowCommand}" Background="Transparent" BorderThickness="0">
                         <Image Source="/Resources/close.png" Width="20" />

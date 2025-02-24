@@ -15,6 +15,7 @@ namespace PreziViewer.App.ViewModels
         private CompositeDisposable m_Disposable = new();
         public ReactiveCommand<Unit, Unit> CloseWindowCommand { get; }
         public ReactiveCommand<Unit, Unit> MinimizeWindowCommand { get; }
+        public ReactiveCommand<Unit, Unit> MaximizeWindowCommand { get; }
         public ReactiveCommand<Window, Unit> DragWindowCommand { get; }
 
         public string StatusText
@@ -37,6 +38,7 @@ namespace PreziViewer.App.ViewModels
             }).DisposeWith(m_Disposable);
             CloseWindowCommand = ReactiveCommand.Create(CloseWindow).DisposeWith(m_Disposable);
             MinimizeWindowCommand = ReactiveCommand.Create(MinimizeWindow).DisposeWith(m_Disposable);
+            MaximizeWindowCommand = ReactiveCommand.Create(MaximizeWindow).DisposeWith(m_Disposable);
             DragWindowCommand = ReactiveCommand.Create<Window>(DragWindow).DisposeWith(m_Disposable);
         }
 
@@ -51,6 +53,21 @@ namespace PreziViewer.App.ViewModels
         private void MinimizeWindow()
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeWindow()
+        {
+            if (Application.Current.MainWindow.WindowState == WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+                return;
+            }
+            if (Application.Current.MainWindow.WindowState == WindowState.Normal)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                return;
+            }
+
         }
 
         private void CloseWindow()

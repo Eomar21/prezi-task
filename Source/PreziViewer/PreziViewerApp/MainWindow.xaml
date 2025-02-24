@@ -26,7 +26,7 @@
             </reactiveUi:RoutedViewHost>
             <StatusBar VerticalAlignment="Bottom" Background="#1C1F26" Grid.Row="2">
                 <StatusBarItem>
-                    <TextBlock Foreground="White" Text="{Binding StatusText}"></TextBlock>
+                    <TextBlock Text="{Binding StatusText}" Style="{StaticResource TextBlockStatus}"></TextBlock>
                 </StatusBarItem>
             </StatusBar>
         </Grid>
