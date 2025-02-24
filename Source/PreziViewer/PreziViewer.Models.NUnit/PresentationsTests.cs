@@ -23,8 +23,8 @@ namespace PreziViewer.Tests
             // Arrange
             var presentationList = new List<Presentation>
             {
-                new Presentation { Title = "Presentation 1", Id= new Guid(), ThumbnailUrl=new Uri("www.google.com")},
-                new Presentation { Title = "Presentation 2", Id= new Guid(), ThumbnailUrl=new Uri("www.google.com") }
+                new Presentation { Title = "Presentation 1", Id= new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg")},
+                new Presentation { Title = "Presentation 2", Id= new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") }
             };
 
             // Act
@@ -42,7 +42,7 @@ namespace PreziViewer.Tests
             // Arrange
             var presentationList = new List<Presentation>
             {
-                new Presentation { Title = "Test Presentation", Id= new Guid(), ThumbnailUrl=new Uri("www.google.com") }
+                new Presentation { Title = "Test Presentation", Id= new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") }
             };
             var presentations = new Presentations(presentationList);
 

@@ -22,10 +22,10 @@ namespace PreziViewer.Tests.ViewModels
 
             var mockPresentations = new List<Presentation>
             {
-                new() { LastModified = DateTime.UtcNow.AddDays(-1), Title = "Presentation 2", Id=new Guid(), ThumbnailUrl=new Uri("www.google.com") },
-                new() { LastModified = DateTime.UtcNow.AddDays(-9), Title = "Presentation 3", Id=new Guid(), ThumbnailUrl=new Uri("www.google.com")  },
-                new() { LastModified = DateTime.UtcNow.AddDays(-10), Title = "Presentation 4", Id=new Guid(), ThumbnailUrl=new Uri("www.google.com")  },
-                new() { LastModified = DateTime.UtcNow, Title = "Presentation 1",  Id=new Guid(), ThumbnailUrl=new Uri("www.google.com")  }
+                new() { LastModified = DateTime.UtcNow.AddDays(-1), Title = "Presentation 2", Id=new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") },
+                new() { LastModified = DateTime.UtcNow.AddDays(-9), Title = "Presentation 3", Id=new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg")  },
+                new() { LastModified = DateTime.UtcNow.AddDays(-10), Title = "Presentation 4", Id=new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg")  },
+                new() { LastModified = DateTime.UtcNow, Title = "Presentation 1",  Id=new Guid(), ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg")  }
             };
 
             m_MockPresentationFetcher.Setup(x => x.GetPresentations()).Returns(Task.FromResult<IEnumerable<Presentation>>(mockPresentations));

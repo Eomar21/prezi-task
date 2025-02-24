@@ -76,8 +76,8 @@ namespace PreziViewer.Services.NUnit
             UseMessageHandlerWithFakeData();
             var expectedPresentationsList = new List<Presentation>
             {
-                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 1", Description = "Desc 1", ThumbnailUrl=new Uri("www.google.com") },
-                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 2", Description = "Desc 2", ThumbnailUrl=new Uri("www.google.com") }
+                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 1", Description = "Desc 1", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") },
+                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 2", Description = "Desc 2", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") }
             };
 
             var expectedPresentations = new Presentations(expectedPresentationsList);

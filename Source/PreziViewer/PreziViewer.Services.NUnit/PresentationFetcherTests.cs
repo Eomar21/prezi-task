@@ -24,8 +24,8 @@ namespace PreziViewer.Services.NUnit
             // Arrange
             var onlinePresentationsList = new List<Presentation>
             {
-                new Presentation { Id = Guid.NewGuid(), Title = "Online Presentation 1", ThumbnailUrl=new Uri("www.google.com") },
-                new Presentation { Id = Guid.NewGuid(), Title = "Online Presentation 2", ThumbnailUrl=new Uri("www.google.com") }
+                new Presentation { Id = Guid.NewGuid(), Title = "Online Presentation 1", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") },
+                new Presentation { Id = Guid.NewGuid(), Title = "Online Presentation 2", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") }
             };
             var onlinePresentations = new Presentations(onlinePresentationsList);
 
@@ -46,8 +46,8 @@ namespace PreziViewer.Services.NUnit
             // Arrange
             var localPresentationsList = new List<Presentation>
             {
-                new Presentation { Id = Guid.NewGuid(), Title = "Local Presentation 1", ThumbnailUrl=new Uri("www.google.com") },
-                new Presentation { Id = Guid.NewGuid(), Title = "Local Presentation 2", ThumbnailUrl=new Uri("www.google.com") }
+                new Presentation { Id = Guid.NewGuid(), Title = "Local Presentation 1", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") },
+                new Presentation { Id = Guid.NewGuid(), Title = "Local Presentation 2", ThumbnailUrl=new Uri("https://Prezi.com/thumbnail.jpg") }
             };
             var localPresentations = new Presentations(localPresentationsList);
 
