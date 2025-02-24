@@ -24,7 +24,7 @@
             <local:CustomeToolbarView Grid.Row="0" />
             <reactiveUi:RoutedViewHost Router="{Binding Router}" Grid.Row="1">
             </reactiveUi:RoutedViewHost>
-            <StatusBar VerticalAlignment="Bottom" Background="RoyalBlue" Grid.Row="2">
+            <StatusBar VerticalAlignment="Bottom" Background="#1C1F26" Grid.Row="2">
                 <StatusBarItem>
                     <TextBlock Foreground="White" Text="{Binding StatusText}"></TextBlock>
                 </StatusBarItem>

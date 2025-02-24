@@ -12,7 +12,7 @@
         Command="{Binding DragWindowCommand}"
         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
         </Grid.InputBindings>
-        <Border Background="#272539" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1">
+        <Border Background="#252930" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1">
             <DockPanel>
                 <TextBlock Text="Prezie Viewer"
                        Foreground="White"
