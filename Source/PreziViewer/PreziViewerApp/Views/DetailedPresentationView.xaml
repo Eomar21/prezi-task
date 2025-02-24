@@ -25,19 +25,19 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Margin="0,0,15,0">
-                    <TextBlock Text="Title:" FontWeight="SemiBold" Margin="0,0,0,5" />
-                    <TextBlock Text="Privacy:" FontWeight="SemiBold" Margin="0,0,0,5" />
-                    <TextBlock Text="Last Modified Date:" FontWeight="SemiBold" Margin="0,0,0,5" />
-                    <TextBlock Text="Last Modified Time:" FontWeight="SemiBold" Margin="0,0,0,5" />
-                    <TextBlock Text="Owner:" FontWeight="SemiBold" Margin="0,0,0,5" />
+                    <TextBlock Text="Title:" Style="{StaticResource TextBlockTitleStyle}"  />
+                    <TextBlock Text="Privacy:" Style="{StaticResource TextBlockTitleStyle}"/>
+                    <TextBlock Text="Last Modified Date:" Style="{StaticResource TextBlockTitleStyle}"/>
+                    <TextBlock Text="Last Modified Time:" Style="{StaticResource TextBlockTitleStyle}"/>
+                    <TextBlock Text="Owner:" Style="{StaticResource TextBlockTitleStyle}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical">
-                    <TextBlock Text="{Binding Title}" Margin="0,0,0,5" Foreground="#444" />
-                    <TextBlock Text="{Binding Privacy}" Margin="0,0,0,5" Foreground="#444" />
-                    <TextBlock Text="{Binding LastModifiedDate}" Margin="0,0,0,5" Foreground="#444" />
-                    <TextBlock Text="{Binding LastModifiedTime}" Margin="0,0,0,5" Foreground="#444" />
-                    <TextBlock Text="{Binding Owner}" Margin="0,0,0,5" Foreground="#444" />
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource TextBlockTextStyle}"  />
+                    <TextBlock Text="{Binding Privacy}" Style="{StaticResource TextBlockTextStyle}" />
+                    <TextBlock Text="{Binding LastModifiedDate}" Style="{StaticResource TextBlockTextStyle}" />
+                    <TextBlock Text="{Binding LastModifiedTime}" Style="{StaticResource TextBlockTextStyle}" />
+                    <TextBlock Text="{Binding Owner}" Style="{StaticResource TextBlockTextStyle}" />
                 </StackPanel>
                 <Button
                     Margin="0,15,0,0"

@@ -13,10 +13,10 @@
 
     <Border
             CornerRadius="20"
-            BorderThickness="3"
             BorderBrush="Black"
             Padding="10"
-            Margin="5">
+            Margin="5"
+            Style="{StaticResource FloatingBorder}">
         <Border.Background>
             <ImageBrush ImageSource="{Binding ThumbnailUrl}"></ImageBrush>
         </Border.Background>
