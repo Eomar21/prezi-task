@@ -17,7 +17,7 @@ namespace PreziViewer.Models
         public string Description { get; set; }
 
         [JsonProperty("Privacy")]
-        public string Privacy { get; set; } // TODO  - change to enum
+        public string Privacy { get; set; }
 
         [JsonProperty("LastModified")]
         public DateTime LastModified { get; set; }

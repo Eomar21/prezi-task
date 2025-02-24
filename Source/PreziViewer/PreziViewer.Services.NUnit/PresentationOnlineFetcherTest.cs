@@ -49,8 +49,6 @@ namespace PreziViewer.Services.NUnit
             Assert.That(result.List.Count(), Is.EqualTo(10));
             Assert.That(result.List.First().Id, Is.EqualTo(new Guid("c1f2fb37-590a-4055-b21d-f5732c73d481")));
             Assert.That(result.List.First().Title, Is.EqualTo("Untitled Presentation"));
-
-            // TODO : Add more assertions on all values
         }
 
         [Test]
@@ -67,8 +65,6 @@ namespace PreziViewer.Services.NUnit
             Assert.That(result.List.Count(), Is.EqualTo(10));
             Assert.That(result.List.First().Id, Is.EqualTo(new Guid("c1f2fb37-590a-4055-b21d-f5732c73d481")));
             Assert.That(result.List.First().Title, Is.EqualTo("Untitled Presentation"));
-
-            // TODO : Add more assertions on all values
         }
 
         [Test]
@@ -106,8 +102,6 @@ namespace PreziViewer.Services.NUnit
             Assert.That(result.List.Count(), Is.EqualTo(2));
             Assert.That(result.List.First().Id, Is.EqualTo(expectedPresentations.List.First().Id));
             Assert.That(result.List.First().Title, Is.EqualTo(expectedPresentations.List.First().Title));
-
-            // TODO : Add more assertions on all values
         }
 
         [Test]
