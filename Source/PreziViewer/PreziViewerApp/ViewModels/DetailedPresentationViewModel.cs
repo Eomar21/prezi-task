@@ -23,11 +23,11 @@ namespace PreziViewer.App.ViewModels
         }
 
         public string Title => m_Presentation.Title;
-        public string Description => m_Presentation.Description;
-        public string Privacy => m_Presentation.Privacy;
+        public string Description => m_Presentation.Description ?? string.Empty;
+        public string Privacy => m_Presentation.Privacy ?? string.Empty;
         public string LastModifiedDate => m_Presentation.LastModified.ToLongDateString();
         public string LastModifiedTime => m_Presentation.LastModified.ToLongTimeString();
-        public string Owner => string.Concat(m_Presentation.Owner.FirstName, " ", m_Presentation.Owner.LastName);
+        public string Owner => string.Concat(m_Presentation?.Owner?.FirstName ?? string.Empty, " ", m_Presentation?.Owner?.LastName ?? string.Empty);
         public string? UrlPathSegment => m_Presentation.Id.ToString();
     }
 }

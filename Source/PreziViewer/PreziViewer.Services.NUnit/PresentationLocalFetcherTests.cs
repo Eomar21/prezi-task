@@ -35,8 +35,8 @@ namespace PreziViewer.Services.NUnit
             // Arrange
             var expectedPresentationsList = new List<Presentation>
             {
-                new Presentation { Id = Guid.NewGuid(), Title = "Fake Presentation 1", Description = "Fake Desc 1" },
-                new Presentation { Id = Guid.NewGuid(), Title = "Fake Presentation 2", Description = "Fake Desc 2" }
+                new Presentation { Id = Guid.NewGuid(), Title = "Fake Presentation 1", Description = "Fake Desc 1" , ThumbnailUrl = new Uri("www.google.com")},
+                new Presentation { Id = Guid.NewGuid(), Title = "Fake Presentation 2", Description = "Fake Desc 2", ThumbnailUrl=new Uri("www.google.com") }
             };
             var expectedPresentations = new Presentations(expectedPresentationsList);
             File.WriteAllText(testFilePath, JsonConvert.SerializeObject(expectedPresentations));

@@ -10,9 +10,9 @@ namespace PreziViewer.Services.NUnit
     public class PresentationOnlineFetcherTest
     {
         private Mock<HttpMessageHandler> m_HttpMessageHandler;
-        private Mock<HttpClient> m_HttpClient;
+        private Mock<HttpClient>? m_HttpClient;
         private Mock<IConfigurationService> m_ConfigurationService;
-        private IPresentationOnlineFetcher m_PresentationOnlineFetcher;
+        private IPresentationOnlineFetcher? m_PresentationOnlineFetcher;
 
         [SetUp]
         public void Setup()
@@ -42,7 +42,8 @@ namespace PreziViewer.Services.NUnit
             UseOnlineData();
 
             // Act
-            var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
+            Assert.That(m_PresentationOnlineFetcher, Is.Not.Null);
+            Presentations? result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
 
             // Assert
             Assert.IsNotNull(result);
@@ -58,6 +59,7 @@ namespace PreziViewer.Services.NUnit
             UseOnlineData();
 
             // Act
+            Assert.That(m_PresentationOnlineFetcher, Is.Not.Null);
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentationsAndSave();
 
             // Assert
@@ -74,27 +76,28 @@ namespace PreziViewer.Services.NUnit
             UseMessageHandlerWithFakeData();
             var expectedPresentationsList = new List<Presentation>
             {
-                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 1", Description = "Desc 1" },
-                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 2", Description = "Desc 2" }
+                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 1", Description = "Desc 1", ThumbnailUrl=new Uri("www.google.com") },
+                new Presentation { Id = Guid.NewGuid(), Title = "Presentation 2", Description = "Desc 2", ThumbnailUrl=new Uri("www.google.com") }
             };
 
             var expectedPresentations = new Presentations(expectedPresentationsList);
 
-            string jsonResponse = JsonConvert.SerializeObject(expectedPresentations);
+            string? jsonResponse = JsonConvert.SerializeObject(expectedPresentations);
 
             m_HttpMessageHandler
                 .Protected()
-                .Setup<Task<HttpResponseMessage>>(
-                    "SendAsync",
-                    ItExpr.IsAny<HttpRequestMessage>(),
-                    ItExpr.IsAny<CancellationToken>())
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(jsonResponse)
-                });
+                    .Setup<Task<HttpResponseMessage>>(
+                        "SendAsync",
+                        ItExpr.IsAny<HttpRequestMessage>(),
+                        ItExpr.IsAny<CancellationToken>())
+                    .ReturnsAsync(new HttpResponseMessage
+                    {
+                        StatusCode = HttpStatusCode.OK,
+                        Content = new StringContent(jsonResponse)
+                    });
 
             // Act
+            Assert.That(m_PresentationOnlineFetcher, Is.Not.Null);
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
 
             // Assert
@@ -109,7 +112,7 @@ namespace PreziViewer.Services.NUnit
         {
             // Arrange
             UseMessageHandlerWithFakeData();
-            string invalidJson = "{ invalid_json_data }";
+            string? invalidJson = "{ invalid_json_data }";
 
             m_HttpMessageHandler
                 .Protected()
@@ -124,6 +127,7 @@ namespace PreziViewer.Services.NUnit
                 });
 
             // Act
+            Assert.That(m_PresentationOnlineFetcher, Is.Not.Null);
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
 
             // Assert
@@ -145,6 +149,7 @@ namespace PreziViewer.Services.NUnit
                 .ThrowsAsync(new HttpRequestException("Network error"));
 
             // Act
+            Assert.That(m_PresentationOnlineFetcher, Is.Not.Null);
             var result = await m_PresentationOnlineFetcher.TryGetOnlinePresentations();
 
             // Assert

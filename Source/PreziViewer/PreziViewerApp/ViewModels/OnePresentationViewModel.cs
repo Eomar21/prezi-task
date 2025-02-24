@@ -5,10 +5,11 @@ using System.Reactive.Disposables;
 
 namespace PreziViewer.App.ViewModels
 {
-    public class OnePresentationViewModel : ViewModelBase, IDisposable
+    public class OnePresentationViewModel : ViewModelBase, IRoutableViewModel, IDisposable
     {
-        private Presentation m_Presntation;
-        public IScreen HostScreen;
+        private readonly Presentation m_Presntation;
+        public IScreen HostScreen { get; }
+
         private CompositeDisposable m_Disposables = new();
         public ReactiveCommand<Unit, Unit> GoToDetailedViewCommand { get; }
 
@@ -30,7 +31,8 @@ namespace PreziViewer.App.ViewModels
         }
 
         public string Title => m_Presntation.Title;
-        public string Description => m_Presntation.Description;
+        public string Description => m_Presntation.Description ?? string.Empty;
         public string ThumbnailUrl => m_Presntation.ThumbnailUrl.ToString();
+        public string? UrlPathSegment => string.Concat(m_Presntation.Id, "_one_presentation");
     }
 }

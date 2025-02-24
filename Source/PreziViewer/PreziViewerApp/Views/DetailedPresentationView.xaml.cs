@@ -23,7 +23,7 @@ namespace PreziViewer.App.Views
         object? IViewFor.ViewModel
         {
             get => ViewModel;
-            set => ViewModel = (DetailedPresentationViewModel)value;
+            set => ViewModel = value as DetailedPresentationViewModel;
         }
     }
 }
